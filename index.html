@@ -1,39 +1,266 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>나를 소개합니다</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 80px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 10px;
-        }
-        p {
-            line-height: 1.6;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>다시개발 - UBN 저자 소개</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #2c7be5;
+      --primary-dark: #1e5bb8;
+      --text: #333;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+    
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #e9ecef);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .author-info {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    
+    .author-links a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .author-links a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+    
+    .author-links i {
+      margin-right: 6px;
+    }
+    
+    .books-section {
+      margin-top: 60px;
+    }
+    
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
+    }
+    
+    .book-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .book-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    
+    .book-cover {
+      height: 380px;
+      background: #f1f3f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .book-cover img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .book-info {
+      padding: 24px;
+    }
+    
+    .book-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+    
+    .book-desc {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    
+    .book-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .btn-kyobo {
+      background: #ff6b6b;
+      color: white;
+    }
+    
+    .btn-yes24 {
+      background: #00c73c;
+      color: white;
+    }
+    
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    
+    .btn i {
+      margin-right: 8px;
+    }
+    
+    footer {
+      text-align: center;
+      margin: 80px 0 40px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>안녕하세요 👋</h1>
-        <p>저는 jbs371입니다.</p>
-        <p>이곳은 저를 소개하는 개인 홈페이지입니다.</p>
-        <p>관심사: 개발, 공부, 기록</p>
-        <p>이메일: example@email.com</p>
-    </div>
+
+  <div class="container">
+    <header>
+      <h1>다시개발</h1>
+      <div class="author-info">UBN · 개발자, 기록자, 성장 추구자</div>
+      <div class="author-links">
+        <a href="mailto:jbsh371@gmail.com"><i class="fas fa-envelope"></i> jbsh371@gmail.com</a>
+        <a href="https://recording-it.tistory.com/" target="_blank"><i class="fas fa-blog"></i> 블로그 방문하기</a>
+      </div>
+    </header>
+
+    <section class="books-section">
+      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:40px;">4권의 책 소개</h2>
+      
+      <div class="books-grid">
+
+        <!-- 책 1 -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://via.placeholder.com/300x450/2c7be5/ffffff?text=다시개발+1" alt="다시개발 책 1 표지">
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">다시개발 1</h3>
+            <p class="book-desc">
+              개발자로서의 여정을 다시 시작하는 마음가짐과 실전에서 바로 써먹는 성장법을 담은 책입니다. 
+              초보에서 중급으로, 그리고 더 나아가기 위한 현실적인 조언들로 가득합니다.
+            </p>
+            <div class="book-links">
+              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
+              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 책 2 -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://via.placeholder.com/300x450/1e5bb8/ffffff?text=다시개발+2" alt="다시개발 책 2 표지">
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">다시개발 2</h3>
+            <p class="book-desc">
+              코드뿐 아니라 커리어, 태도, 커뮤니케이션까지 — 개발자로 오래 일하기 위한 필수 마인드셋을 다룹니다. 
+              블로그 기록을 기반으로 한 실전 사례가 풍부합니다.
+            </p>
+            <div class="book-links">
+              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
+              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 책 3 -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://via.placeholder.com/300x450/2c7be5/ffffff?text=다시개발+3" alt="다시개발 책 3 표지">
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">다시개발 3</h3>
+            <p class="book-desc">
+              AI 시대의 개발자로 살아남기 위한 기술 트렌드와 학습 로드맵. 
+              실무에서 바로 적용 가능한 최신 기술 이야기들이 담겨 있습니다.
+            </p>
+            <div class="book-links">
+              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
+              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 책 4 -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://via.placeholder.com/300x450/1e5bb8/ffffff?text=다시개발+4" alt="다시개발 책 4 표지">
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">다시개발 4</h3>
+            <p class="book-desc">
+              개발자로서의 정체성을 다시 세우고, 지속 가능한 커리어를 만들어가는 여정. 
+              많은 개발자들이 공감할 수 있는 진솔한 이야기들로 구성되었습니다.
+            </p>
+            <div class="book-links">
+              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
+              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      © 2026 UBN. All rights reserved.<br>
+      Made with 💙 by recording-it.tistory.com
+    </footer>
+  </div>
+
 </body>
 </html>
