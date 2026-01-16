@@ -2,265 +2,412 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>다시개발 - UBN 저자 소개</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>다시개발 | 소개</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --primary: #2c7be5;
-      --primary-dark: #1e5bb8;
-      --text: #333;
-      --light: #f8f9fa;
-      --gray: #6c757d;
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.07);
+      --card2: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --line: rgba(255,255,255,0.12);
+      --accent: #7c3aed;   /* purple */
+      --accent2:#22c55e;   /* green */
+      --shadow: 0 14px 40px rgba(0,0,0,0.45);
+      --radius: 18px;
     }
-    
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: linear-gradient(to bottom, var(--light), #e9ecef);
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(124,58,237,0.35), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,0.22), transparent 55%),
+        radial-gradient(900px 600px at 40% 90%, rgba(59,130,246,0.18), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 42px 18px 64px;
+    }
+
+    /* Top */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing: -0.2px;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      box-shadow: 0 0 24px rgba(124,58,237,0.55);
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin: 16px 0 18px;
+    }
+    @media (max-width: 880px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-main{
+      padding: 24px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-main:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 240px at 20% 10%, rgba(124,58,237,0.35), transparent 60%),
+                  radial-gradient(500px 240px at 90% 40%, rgba(34,197,94,0.22), transparent 60%);
+      pointer-events:none;
+      opacity: 0.9;
+    }
+    .hero-main > *{ position:relative; }
+
+    .name{
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+      margin: 0 0 8px;
+    }
+    .subtitle{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
       line-height: 1.6;
     }
-    
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
     }
-    
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      color: var(--primary-dark);
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-    
-    .author-info {
-      font-size: 1.2rem;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-    
-    .author-links a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    
-    .author-links a:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
-    }
-    
-    .author-links i {
-      margin-right: 6px;
-    }
-    
-    .books-section {
-      margin-top: 60px;
-    }
-    
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      margin-top: 30px;
-    }
-    
-    .book-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .book-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
-    
-    .book-cover {
-      height: 380px;
-      background: #f1f3f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    
-    .book-cover img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    
-    .book-info {
-      padding: 24px;
-    }
-    
-    .book-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--primary-dark);
-    }
-    
-    .book-desc {
-      color: #555;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
-    
-    .book-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 18px;
-      border-radius: 50px;
-      text-decoration: none;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
       font-weight: 600;
-      transition: all 0.3s;
+      font-size: 14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
     }
-    
-    .btn-kyobo {
-      background: #ff6b6b;
-      color: white;
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.18);
     }
-    
-    .btn-yes24 {
-      background: #00c73c;
-      color: white;
+    .btn.primary{
+      border-color: rgba(124,58,237,0.45);
+      background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(96,165,250,0.18));
+      box-shadow: 0 12px 28px rgba(124,58,237,0.16);
     }
-    
-    .btn:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
+    .btn.good{
+      border-color: rgba(34,197,94,0.45);
+      background: linear-gradient(135deg, rgba(34,197,94,0.20), rgba(34,197,94,0.08));
+      box-shadow: 0 12px 28px rgba(34,197,94,0.12);
     }
-    
-    .btn i {
-      margin-right: 8px;
+
+    .hero-side{
+      padding: 18px;
     }
-    
-    footer {
-      text-align: center;
-      margin: 80px 0 40px;
-      color: var(--gray);
-      font-size: 0.95rem;
+    .info{
+      display:grid;
+      gap:10px;
+    }
+    .info-item{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+    }
+    .label{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .value{
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      word-break: break-word;
+    }
+    .value a{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); }
+
+    /* Section */
+    .section{
+      margin-top: 18px;
+      padding: 22px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+    }
+    .section p.desc{
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* Books */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 880px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .book{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+    }
+    .cover{
+      width: 120px;
+      aspect-ratio: 3 / 4;
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .cover img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .cover .ph{
+      color: rgba(255,255,255,0.65);
+      font-size: 12px;
+      padding: 10px;
+      text-align:center;
+      line-height: 1.4;
+    }
+    .book h3{
+      margin: 2px 0 8px;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .book p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 13.5px;
+    }
+    .store-row{ display:flex; flex-wrap:wrap; gap:8px; }
+    .store{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .store:hover{ background: rgba(255,255,255,0.09); }
+
+    /* Footer */
+    footer{
+      margin-top: 18px;
+      color: rgba(255,255,255,0.55);
+      text-align:center;
+      font-size: 12.5px;
+      padding: 10px 0 0;
+    }
+    .small{
+      color: rgba(255,255,255,0.60);
+      font-size: 12.5px;
     }
   </style>
 </head>
 <body>
-
-  <div class="container">
-    <header>
-      <h1>다시개발</h1>
-      <div class="author-info">UBN · 개발자, 기록자, 성장 추구자</div>
-      <div class="author-links">
-        <a href="mailto:jbsh371@gmail.com"><i class="fas fa-envelope"></i> jbsh371@gmail.com</a>
-        <a href="https://recording-it.tistory.com/" target="_blank"><i class="fas fa-blog"></i> 블로그 방문하기</a>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>다시개발</span>
       </div>
-    </header>
+    </div>
 
-    <section class="books-section">
-      <h2 style="text-align:center; font-size:2.2rem; margin-bottom:40px;">4권의 책 소개</h2>
-      
-      <div class="books-grid">
+    <div class="hero">
+      <div class="card hero-main">
+        <h1 class="name">안녕하세요, <span style="color:rgba(255,255,255,0.88)">다시개발</span>입니다 👋</h1>
+        <p class="subtitle">
+          기록하고, 정리하고, 다시 개발합니다.<br/>
+          블로그와 책으로 꾸준히 쌓아온 내용을 한 곳에 모아두는 소개 페이지입니다.
+        </p>
 
-        <!-- 책 1 -->
-        <div class="book-card">
-          <div class="book-cover">
-            <img src="https://via.placeholder.com/300x450/2c7be5/ffffff?text=다시개발+1" alt="다시개발 책 1 표지">
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">다시개발 1</h3>
-            <p class="book-desc">
-              개발자로서의 여정을 다시 시작하는 마음가짐과 실전에서 바로 써먹는 성장법을 담은 책입니다. 
-              초보에서 중급으로, 그리고 더 나아가기 위한 현실적인 조언들로 가득합니다.
-            </p>
-            <div class="book-links">
-              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
-              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
-            </div>
-          </div>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:jbsh371@gmail.com" aria-label="이메일 보내기">
+            ✉️ 이메일 보내기
+          </a>
+          <a class="btn good" href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer" aria-label="블로그 열기">
+            📝 블로그 방문하기
+          </a>
+          <!-- 원하면 GitHub 링크 추가 가능 -->
+          <!-- <a class="btn" href="https://github.com/jbs371" target="_blank" rel="noopener noreferrer">🐙 GitHub</a> -->
         </div>
 
-        <!-- 책 2 -->
-        <div class="book-card">
-          <div class="book-cover">
-            <img src="https://via.placeholder.com/300x450/1e5bb8/ffffff?text=다시개발+2" alt="다시개발 책 2 표지">
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">다시개발 2</h3>
-            <p class="book-desc">
-              코드뿐 아니라 커리어, 태도, 커뮤니케이션까지 — 개발자로 오래 일하기 위한 필수 마인드셋을 다룹니다. 
-              블로그 기록을 기반으로 한 실전 사례가 풍부합니다.
-            </p>
-            <div class="book-links">
-              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
-              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 책 3 -->
-        <div class="book-card">
-          <div class="book-cover">
-            <img src="https://via.placeholder.com/300x450/2c7be5/ffffff?text=다시개발+3" alt="다시개발 책 3 표지">
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">다시개발 3</h3>
-            <p class="book-desc">
-              AI 시대의 개발자로 살아남기 위한 기술 트렌드와 학습 로드맵. 
-              실무에서 바로 적용 가능한 최신 기술 이야기들이 담겨 있습니다.
-            </p>
-            <div class="book-links">
-              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
-              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 책 4 -->
-        <div class="book-card">
-          <div class="book-cover">
-            <img src="https://via.placeholder.com/300x450/1e5bb8/ffffff?text=다시개발+4" alt="다시개발 책 4 표지">
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">다시개발 4</h3>
-            <p class="book-desc">
-              개발자로서의 정체성을 다시 세우고, 지속 가능한 커리어를 만들어가는 여정. 
-              많은 개발자들이 공감할 수 있는 진솔한 이야기들로 구성되었습니다.
-            </p>
-            <div class="book-links">
-              <a href="https://www.kyobobook.co.kr/" target="_blank" class="btn btn-kyobo"><i class="fas fa-book"></i> 교보문고</a>
-              <a href="https://www.yes24.com/" target="_blank" class="btn btn-yes24"><i class="fas fa-shopping-cart"></i> YES24</a>
-            </div>
-          </div>
-        </div>
-
+        <p class="small" style="margin:16px 0 0;">
+          연락은 이메일이 가장 빠릅니다. 협업/강의/집필 문의 환영합니다.
+        </p>
       </div>
-    </section>
+
+      <div class="card hero-side">
+        <div class="info">
+          <div class="info-item">
+            <div class="label">이름</div>
+            <div class="value">다시개발</div>
+          </div>
+          <div class="info-item">
+            <div class="label">이메일</div>
+            <div class="value"><a href="mailto:jbsh371@gmail.com">jbsh371@gmail.com</a></div>
+          </div>
+          <div class="info-item">
+            <div class="label">블로그</div>
+            <div class="value">
+              <a href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer">
+                recording-it.tistory.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card section">
+      <h2>📚 책 소개 (4권)</h2>
+      <p class="desc">
+        아래는 제가 쓴/참여한 책들입니다. 표지를 클릭하거나, 교보/YES24 링크로 바로 구매할 수 있어요.
+      </p>
+
+      <div class="grid">
+        <!-- BOOK 1 -->
+        <div class="book">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer" aria-label="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제">
+            <img src="book_cover_langgraph.png" alt="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제 표지">
+          </a>
+          <div>
+            <h3>LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제</h3>
+            <p>AI Agent를 처음 이해하기 위한 책. Agent의 실행 과정을 흐름으로 바라보고, State를 기준으로 동작을 이해하며, LLM과 도구를 구성 요소로 나누어 생각하는 방식을 배웁니다.</p>
+            <div class="store-row">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer">교보문고</a>
+              <a class="store" href="https://www.yes24.com/product/goods/173925712" target="_blank" rel="noopener noreferrer">YES24</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOK 2 -->
+        <div class="book">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer" aria-label="나만의 Agent 만들기 - OpenAI(GPT-5) 편">
+            <img src="book_cover_agent_openai.png" alt="나만의 Agent 만들기 - OpenAI(GPT-5) 편 표지">
+          </a>
+          <div>
+            <h3>나만의 Agent 만들기 - OpenAI(GPT-5) 편</h3>
+            <p>OpenAI API로 원리를 이해하고 SDK로 시스템을 완성하는 흐름을 경험하는 입문서. 사용자 요청 이해, 외부 도구 호출, 대화이력 관리, 웹 검색, 문서 기반 질의응답 등을 직접 구현하며 배웁니다.</p>
+            <div class="store-row">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer">교보문고</a>
+              <a class="store" href="https://www.yes24.com/product/goods/159581129" target="_blank" rel="noopener noreferrer">YES24</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOK 3 -->
+        <div class="book">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer" aria-label="따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기">
+            <img src="book_cover_mcp.png" alt="따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기 표지">
+          </a>
+          <div>
+            <h3>따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기</h3>
+            <p>MCP를 실습 중심으로 익히는 책. FastMCP로 서버를 반복 구축하고, Claude Desktop, Cursor, 파이썬 등 다양한 클라이언트로 검증하며, Anthropic, OpenAI, Gemini 등 상용 API와 연동하는 방법을 배웁니다.</p>
+            <div class="store-row">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer">교보문고</a>
+              <a class="store" href="https://www.yes24.com/product/goods/155061618" target="_blank" rel="noopener noreferrer">YES24</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOK 4 -->
+        <div class="book">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer" aria-label="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱">
+            <img src="book_cover_ai_kakao.png" alt="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱 표지">
+          </a>
+          <div>
+            <h3>생성형 AI와 카카오톡으로 만드는 실전 TODO 앱</h3>
+            <p>생성형 AI 서비스를 처음부터 끝까지 구현하는 실전 가이드. 클라우드 서버 구축, OpenAI API 연동, 파이썬 FastAPI 웹 서비스 개발, 카카오 채널 연동까지 AI 서비스의 전 과정을 경험합니다.</p>
+            <div class="store-row">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer">교보문고</a>
+              <a class="store" href="https://www.yes24.com/product/goods/155061617" target="_blank" rel="noopener noreferrer">YES24</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer>
-      © 2026 UBN. All rights reserved.<br>
-      Made with 💙 by recording-it.tistory.com
+      © <span id="y"></span> 다시개발 · <a href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,255,255,0.25);">blog</a>
     </footer>
   </div>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
