@@ -1,0 +1,38 @@
+# ── Backup ────────────────────────────────
+_backup/
+*.bak
+*.orig
+*~
+
+# ── OS ────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Editor / IDE ──────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# ── Tooling / Local ───────────────────────
+.claude/
+node_modules/
+.cache/
+.tmp/
+*.log
+.env
+.env.local
+
+# ── Jekyll (GitHub Pages) ─────────────────
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/

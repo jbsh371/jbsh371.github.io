@@ -1,417 +1,444 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>다시개발 | 소개</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>다시개발 — 기록하는 개발자</title>
+<meta name="description" content="다시개발(jbsh371) 프로필. AI Agent, MCP, LangGraph를 다루는 전자책을 씁니다." />
+<meta name="author" content="다시개발" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="다시개발 — 기록하는 개발자" />
+<meta property="og:description" content="AI Agent, MCP, LangGraph를 다루는 전자책을 씁니다." />
+<meta property="og:image" content="book_cover_langgraph.png" />
 
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #0b1220;
-      --card: rgba(255,255,255,0.07);
-      --card2: rgba(255,255,255,0.10);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --line: rgba(255,255,255,0.12);
-      --accent: #7c3aed;   /* purple */
-      --accent2:#22c55e;   /* green */
-      --shadow: 0 14px 40px rgba(0,0,0,0.45);
-      --radius: 18px;
-    }
+<style>
+/* ============ tokens ============ */
+:root{
+  --paper:#FBFAF7;
+  --paper-2:#FFFFFF;
+  --ink:#141210;
+  --ink-2:#3B352F;
+  --muted:#7A7269;
+  --line:#E3DED5;
+  --line-2:#EFEBE4;
+  --accent:#E8481F;
+  --accent-soft:#FDEDE8;
+  --shadow-s:0 1px 2px rgba(20,18,16,.05), 0 6px 16px rgba(20,18,16,.05);
+  --shadow-l:0 18px 50px rgba(20,18,16,.14);
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0E0D0C;
+    --paper-2:#171513;
+    --ink:#F5F1EA;
+    --ink-2:#D6CFC5;
+    --muted:#9A9188;
+    --line:#2C2825;
+    --line-2:#221F1C;
+    --accent:#FF6A3D;
+    --accent-soft:#2A1712;
+    --shadow-s:0 1px 2px rgba(0,0,0,.4), 0 6px 16px rgba(0,0,0,.35);
+    --shadow-l:0 18px 50px rgba(0,0,0,.55);
+  }
+}
 
-    *{ box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      font-family: "Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 700px at 10% 10%, rgba(124,58,237,0.35), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,0.22), transparent 55%),
-        radial-gradient(900px 600px at 40% 90%, rgba(59,130,246,0.18), transparent 60%),
-        var(--bg);
-      overflow-x:hidden;
-    }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+button{ font:inherit; color:inherit; }
 
-    a{ color: inherit; text-decoration: none; }
-    .wrap{
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 42px 18px 64px;
-    }
+/* ============ layout ============ */
+.wrap{ max-width:1080px; margin:0 auto; padding-inline:24px; }
+@media (max-width:520px){ .wrap{ padding-inline:18px; } }
 
-    /* Top */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 18px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing: -0.2px;
-    }
-    .dot{
-      width:12px; height:12px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), #60a5fa);
-      box-shadow: 0 0 24px rgba(124,58,237,0.55);
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.06);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 14px;
-      backdrop-filter: blur(10px);
-    }
+.serif{ font-family:"Instrument Serif","Noto Sans KR",Georgia,serif; font-weight:400; }
+.eyebrow{
+  font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--accent);
+}
 
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      margin: 16px 0 18px;
-    }
-    @media (max-width: 880px){
-      .hero{ grid-template-columns: 1fr; }
-    }
+/* ============ top bar ============ */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line-2);
+}
+.topbar .wrap{
+  height:64px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.brand{ display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:-.02em; font-size:16px; }
+.brand .mark{
+  width:26px; height:26px; border-radius:8px;
+  background:var(--accent);
+  display:grid; place-items:center;
+  color:#fff; font-size:13px; font-weight:900; letter-spacing:-.03em;
+  box-shadow:0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.top-link{
+  display:inline-grid; place-items:center;
+  width:34px; height:34px; flex:none;
+  color:var(--muted);
+  border-radius:999px; border:1px solid var(--line);
+  transition:color .2s, border-color .2s, background .2s, transform .2s;
+}
+.top-link:hover{ color:var(--ink); border-color:var(--ink); background:var(--paper-2); transform:translateY(-1px); }
 
-    .card{
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-    }
+/* ============ hero ============ */
+.hero{ padding-block:clamp(34px,5vw,58px) clamp(26px,4vw,44px); position:relative; }
+.hero::before{
+  content:""; position:absolute; inset:-10% -30% auto -30%; height:360px; z-index:-1;
+  background:radial-gradient(60% 100% at 30% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%);
+  pointer-events:none;
+}
+h1.headline{
+  margin:14px 0 0;
+  font-size:clamp(34px,6.2vw,64px);
+  font-weight:900;
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+h1.headline .accent{ color:var(--accent); }
+h1.headline .thin{
+  display:block;
+  font-family:"Instrument Serif","Noto Sans KR",Georgia,serif;
+  font-style:italic; font-weight:400;
+  letter-spacing:-.02em;
+  font-size:.62em;
+  color:var(--ink-2);
+  margin-top:.12em;
+}
+.lede{
+  margin:20px 0 0; max-width:54ch;
+  font-size:clamp(14.5px,1.7vw,16.5px);
+  line-height:1.72; color:var(--ink-2);
+}
+.lede strong{ font-weight:700; color:var(--ink); box-shadow:inset 0 -.5em 0 var(--accent-soft); }
 
-    .hero-main{
-      padding: 24px;
-      position: relative;
-      overflow:hidden;
-    }
-    .hero-main:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 240px at 20% 10%, rgba(124,58,237,0.35), transparent 60%),
-                  radial-gradient(500px 240px at 90% 40%, rgba(34,197,94,0.22), transparent 60%);
-      pointer-events:none;
-      opacity: 0.9;
-    }
-    .hero-main > *{ position:relative; }
+/* ============ actions ============ */
+.actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.btn{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:13px 20px; border-radius:999px;
+  font-size:14px; font-weight:700; letter-spacing:-.01em;
+  border:1px solid var(--line); background:var(--paper-2); color:var(--ink);
+  cursor:pointer;
+  transition:transform .18s cubic-bezier(.2,.8,.3,1), box-shadow .18s, background .18s, border-color .18s, color .18s;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow-s); border-color:var(--ink); }
+.btn:active{ transform:translateY(0); }
+.btn.primary{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn.primary:hover{ background:var(--accent); border-color:var(--accent); color:#fff; }
+.btn.primary.copied{ background:#177245; border-color:#177245; color:#fff; }
+.btn .ico{ width:16px; height:16px; flex:none; }
+.btn .mono{ font-variant-numeric:tabular-nums; }
 
-    .name{
-      font-size: 34px;
-      line-height: 1.15;
-      letter-spacing: -0.6px;
-      margin: 0 0 8px;
-    }
-    .subtitle{
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+/* ============ section head ============ */
+.section{ padding-block:clamp(38px,5vw,60px) clamp(48px,7vw,84px); }
+.sec-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:26px; }
+.sec-head h2{ margin:6px 0 0; font-size:clamp(26px,4vw,40px); font-weight:900; letter-spacing:-.04em; line-height:1.15; }
+.sec-head .count{ font-size:13px; color:var(--muted); font-weight:700; letter-spacing:-.01em; }
 
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 14px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 14px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      user-select:none;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn.primary{
-      border-color: rgba(124,58,237,0.45);
-      background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(96,165,250,0.18));
-      box-shadow: 0 12px 28px rgba(124,58,237,0.16);
-    }
-    .btn.good{
-      border-color: rgba(34,197,94,0.45);
-      background: linear-gradient(135deg, rgba(34,197,94,0.20), rgba(34,197,94,0.08));
-      box-shadow: 0 12px 28px rgba(34,197,94,0.12);
-    }
+/* ============ books ============ */
+.books{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px 24px; }
+@media (max-width:820px){ .books{ grid-template-columns:1fr; gap:22px; } }
 
-    .hero-side{
-      padding: 18px;
-    }
-    .info{
-      display:grid;
-      gap:10px;
-    }
-    .info-item{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.06);
-    }
-    .label{
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    .value{
-      font-weight: 600;
-      letter-spacing: -0.2px;
-      word-break: break-word;
-    }
-    .value a{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); }
+.book{
+  position:relative;
+  display:grid; grid-template-columns:132px 1fr; gap:20px;
+  padding:22px;
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  transition:transform .25s cubic-bezier(.2,.8,.3,1), box-shadow .25s, border-color .25s;
+}
+.book:hover{ transform:translateY(-4px); box-shadow:var(--shadow-l); border-color:color-mix(in srgb, var(--accent) 45%, var(--line)); }
+@media (max-width:420px){
+  .book{ grid-template-columns:1fr; }
+  .cover{ width:150px; }
+}
+.cover{
+  width:132px; aspect-ratio:3/4; max-width:100%;
+  border-radius:8px; overflow:hidden;
+  background:var(--line-2);
+  box-shadow:0 8px 22px rgba(20,18,16,.18);
+  transition:transform .25s cubic-bezier(.2,.8,.3,1);
+}
+.book:hover .cover{ transform:translateY(-2px) rotate(-1.2deg) scale(1.02); }
+.cover img{ width:100%; height:100%; object-fit:cover; }
 
-    /* Section */
-    .section{
-      margin-top: 18px;
-      padding: 22px;
-    }
-    .section h2{
-      margin:0 0 10px;
-      font-size: 18px;
-      letter-spacing: -0.3px;
-    }
-    .section p.desc{
-      margin: 0 0 16px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 14px;
-    }
+.book .num{
+  font-family:"Instrument Serif",Georgia,serif; font-style:italic;
+  font-size:15px; color:var(--accent); letter-spacing:.02em;
+}
+.book h3{ margin:6px 0 10px; font-size:17px; font-weight:900; line-height:1.4; letter-spacing:-.03em; }
+.book p{ margin:0 0 16px; font-size:13.5px; line-height:1.75; color:var(--muted); }
+.stores{ display:flex; flex-wrap:wrap; gap:8px; }
+.store{
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:12.5px; font-weight:700; letter-spacing:-.01em;
+  padding:7px 13px; border-radius:999px;
+  border:1px solid var(--line); color:var(--ink-2);
+  transition:background .18s, color .18s, border-color .18s, transform .18s;
+}
+.store:hover{ background:var(--ink); color:var(--paper); border-color:var(--ink); transform:translateY(-1px); }
+.store .arw{ font-size:11px; opacity:.7; }
 
-    /* Books */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 880px){
-      .grid{ grid-template-columns: 1fr; }
-    }
+/* ============ footer ============ */
+footer{ border-top:1px solid var(--line); padding-block:34px 44px; }
+footer .wrap{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+footer .c{ font-size:12.5px; color:var(--muted); }
+footer .up{ font-size:12.5px; font-weight:700; color:var(--muted); transition:color .2s; }
+footer .up:hover{ color:var(--accent); }
 
-    .book{
-      display:grid;
-      grid-template-columns: 120px 1fr;
-      gap: 14px;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.06);
-    }
-    .cover{
-      width: 120px;
-      aspect-ratio: 3 / 4;
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-      display:flex; align-items:center; justify-content:center;
-      position:relative;
-    }
-    .cover img{
-      width:100%; height:100%;
-      object-fit: cover;
-      display:block;
-    }
-    .cover .ph{
-      color: rgba(255,255,255,0.65);
-      font-size: 12px;
-      padding: 10px;
-      text-align:center;
-      line-height: 1.4;
-    }
-    .book h3{
-      margin: 2px 0 8px;
-      font-size: 16px;
-      letter-spacing: -0.2px;
-    }
-    .book p{
-      margin: 0 0 12px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 13.5px;
-    }
-    .store-row{ display:flex; flex-wrap:wrap; gap:8px; }
-    .store{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 9px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .store:hover{ background: rgba(255,255,255,0.09); }
+/* ============ toast ============ */
+#toast{
+  position:fixed; left:50%; bottom:30px; transform:translate(-50%,20px);
+  background:var(--ink); color:var(--paper);
+  padding:12px 20px; border-radius:999px;
+  font-size:13.5px; font-weight:700; letter-spacing:-.01em;
+  box-shadow:var(--shadow-l);
+  opacity:0; pointer-events:none; z-index:100;
+  transition:opacity .22s, transform .22s cubic-bezier(.2,.8,.3,1);
+}
+#toast.show{ opacity:1; transform:translate(-50%,0); }
 
-    /* Footer */
-    footer{
-      margin-top: 18px;
-      color: rgba(255,255,255,0.55);
-      text-align:center;
-      font-size: 12.5px;
-      padding: 10px 0 0;
-    }
-    .small{
-      color: rgba(255,255,255,0.60);
-      font-size: 12.5px;
-    }
-  </style>
+/* ============ reveal ============ */
+.rv{ opacity:0; transform:translateY(18px); }
+.rv.in{ opacity:1; transform:none; transition:opacity .6s ease, transform .6s cubic-bezier(.2,.8,.3,1); }
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+  .rv{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+</style>
 </head>
-<body>
+<body id="top">
+
+<header class="topbar">
   <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>다시개발</span>
-      </div>
-    </div>
+    <div class="brand"><span class="mark">다</span><span>다시개발</span></div>
+    <a class="top-link" href="https://github.com/jbsh371" target="_blank" rel="noopener noreferrer" aria-label="GitHub 프로필 열기" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </div>
+</header>
 
-    <div class="hero">
-      <div class="card hero-main">
-        <h1 class="name">안녕하세요, <span style="color:rgba(255,255,255,0.88)">다시개발</span>입니다 👋</h1>
-        <p class="subtitle">
-          개발자로 시작해, 분석하고 설계하며 프로젝트를 관리해왔고,<br/>
-          지금은 다시 개발로 돌아왔습니다.<br/>
-          기록과 정리를 통해 본질을 파악하고, 그 기록을 기반으로 더 나은 개발을 만들어갑니다.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn primary" href="mailto:jbsh371@gmail.com" aria-label="이메일 보내기">
-            ✉️ 이메일 보내기
-          </a>
-          <a class="btn good" href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer" aria-label="블로그 열기">
-            📝 블로그 방문하기
-          </a>
-          <a class="btn" href="https://github.com/just-record" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-        </div>
-      </div>
-
-      <div class="card hero-side">
-        <div class="info">
-          <div class="info-item">
-            <div class="label">이름</div>
-            <div class="value">다시개발</div>
-          </div>
-          <div class="info-item">
-            <div class="label">이메일</div>
-            <div class="value"><a href="mailto:jbsh371@gmail.com">jbsh371@gmail.com</a></div>
-          </div>
-          <div class="info-item">
-            <div class="label">블로그</div>
-            <div class="value">
-              <a href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer">
-                recording-it.tistory.com
-              </a>
-            </div>
-          </div>
-		  <div class="info-item">
-            <div class="label">Github</div>
-            <div class="value">
-              <a href="https://github.com/just-record" target="_blank" rel="noopener noreferrer">
-                https://github.com/just-record
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card section">
-      <h2>📚 책 소개 (전자책)</h2>
-      <p class="desc">
-        아래는 제가 쓴 전자책들입니다. 교보/YES24 링크로 바로 구매할 수 있습니다.
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow rv">Profile · 다시개발</div>
+      <h1 class="headline rv">
+        기록하고, <span class="accent">정리하고,</span>
+        <span class="thin">다시 개발합니다.</span>
+      </h1>
+      <p class="lede rv">
+        개발자로 시작해 분석하고 설계하며 프로젝트를 관리해왔고, 지금은 <strong>다시 개발</strong>로 돌아왔습니다.
+        기록과 정리를 통해 본질을 파악하고, 그 기록을 기반으로 더 나은 개발을 만들어갑니다.
+        AI Agent와 MCP를 주제로 한 전자책 4권을 썼습니다.
       </p>
 
-      <div class="grid">
-        <!-- BOOK 1 -->
-        <div class="book">
-          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer" aria-label="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제">
-            <img src="book_cover_langgraph.png" alt="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제 표지">
-          </a>
-          <div>
-            <h3>LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제</h3>
-            <p>AI Agent를 처음 이해하기 위한 책. LangGraph를 통해 Agent의 실행 과정을 흐름으로 바라보고, State를 기준으로 동작을 이해하며, LLM과 도구를 구성 요소로 나누어 생각하는 방식을 배웁니다.</p>
-            <div class="store-row">
-              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer">교보문고</a>
-              <a class="store" href="https://www.yes24.com/product/goods/173925712" target="_blank" rel="noopener noreferrer">YES24</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- BOOK 2 -->
-        <div class="book">
-          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer" aria-label="나만의 Agent 만들기 - OpenAI(GPT-5) 편">
-            <img src="book_cover_agent_openai.png" alt="나만의 Agent 만들기 - OpenAI(GPT-5) 편 표지">
-          </a>
-          <div>
-            <h3>나만의 Agent 만들기 - OpenAI(GPT-5) 편</h3>
-            <p>OpenAI API로 원리를 이해하고 SDK로 시스템을 완성하는 흐름을 경험하는 입문서. 사용자 요청 이해, 외부 도구 호출, 대화이력 관리, 웹 검색, 문서 기반 질의응답 등을 직접 구현하며 배웁니다.</p>
-            <div class="store-row">
-              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer">교보문고</a>
-              <a class="store" href="https://www.yes24.com/product/goods/159581129" target="_blank" rel="noopener noreferrer">YES24</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- BOOK 3 -->
-        <div class="book">
-          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer" aria-label="따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기">
-            <img src="book_cover_mcp.png" alt="따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기 표지">
-          </a>
-          <div>
-            <h3>따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기</h3>
-            <p>MCP를 실습 중심으로 익히는 책. FastMCP로 서버를 반복 구축하고, Claude Desktop, Cursor, 파이썬 등 다양한 클라이언트로 검증하며, Anthropic, OpenAI, Gemini 등 상용 API와 연동하는 방법을 배웁니다.</p>
-            <div class="store-row">
-              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer">교보문고</a>
-              <a class="store" href="https://www.yes24.com/product/goods/155061618" target="_blank" rel="noopener noreferrer">YES24</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- BOOK 4 -->
-        <div class="book">
-          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer" aria-label="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱">
-            <img src="book_cover_ai_kakao.png" alt="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱 표지">
-          </a>
-          <div>
-            <h3>생성형 AI와 카카오톡으로 만드는 실전 TODO 앱</h3>
-            <p>생성형 AI 서비스를 처음부터 끝까지 구현하는 실전 가이드. 클라우드 서버 구축, OpenAI API 연동, 파이썬 FastAPI 웹 서비스 개발, 카카오 채널 연동까지 AI 서비스의 전 과정을 경험합니다.</p>
-            <div class="store-row">
-              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer">교보문고</a>
-              <a class="store" href="https://www.yes24.com/product/goods/155061617" target="_blank" rel="noopener noreferrer">YES24</a>
-            </div>
-          </div>
-        </div>
+      <div class="actions rv">
+        <button class="btn primary js-copy" type="button" data-copy="jbsh371@gmail.com" aria-label="이메일 주소 복사하기">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="label mono">jbsh371@gmail.com</span>
+        </button>
+        <a class="btn" href="https://github.com/jbsh371" target="_blank" rel="noopener noreferrer">
+          <svg class="ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          github.com/jbsh371
+        </a>
+        <a class="btn" href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          블로그
+        </a>
       </div>
     </div>
+  </section>
 
-    <footer>
-      © <span id="y"></span> 다시개발 · <a href="https://recording-it.tistory.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-decoration-color: rgba(255,255,255,0.25);">blog</a>
-    </footer>
+  <!-- ===== BOOKS ===== -->
+  <section class="section" id="books">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <div class="eyebrow">Publications</div>
+          <h2>책 소개 <span class="serif" style="font-style:italic;">(전자책)</span></h2>
+        </div>
+        <div class="count">교보문고 · YES24에서 만나보실 수 있습니다 — 총 4권</div>
+      </div>
+
+      <div class="books">
+
+        <!-- 01 -->
+        <article class="book rv">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer" aria-label="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제">
+            <img src="book_cover_langgraph.png" alt="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제 표지" loading="lazy">
+          </a>
+          <div>
+            <div class="num">01</div>
+            <h3>LangGraph v1.x로 이해하는<br>LLM Agent의 흐름과 통제</h3>
+            <p>AI Agent를 처음 이해하기 위한 책. LangGraph를 통해 Agent의 실행 과정을 흐름으로 바라보고, State를 기준으로 동작을 이해하며, LLM과 도구를 구성 요소로 나누어 생각하는 방식을 배웁니다.</p>
+            <div class="stores">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer">교보문고 <span class="arw">↗</span></a>
+              <a class="store" href="https://www.yes24.com/product/goods/173925712" target="_blank" rel="noopener noreferrer">YES24 <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="book rv">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer" aria-label="나만의 Agent 만들기 - OpenAI(GPT-5) 편">
+            <img src="book_cover_agent_openai.png" alt="나만의 Agent 만들기 OpenAI GPT-5 편 표지" loading="lazy">
+          </a>
+          <div>
+            <div class="num">02</div>
+            <h3>나만의 Agent 만들기<br>— OpenAI(GPT-5) 편</h3>
+            <p>OpenAI API로 원리를 이해하고 SDK로 시스템을 완성하는 흐름을 경험하는 입문서. 사용자 요청 이해, 외부 도구 호출, 대화이력 관리, 웹 검색, 문서 기반 질의응답 등을 직접 구현하며 배웁니다.</p>
+            <div class="stores">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer">교보문고 <span class="arw">↗</span></a>
+              <a class="store" href="https://www.yes24.com/product/goods/159581129" target="_blank" rel="noopener noreferrer">YES24 <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="book rv">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer" aria-label="따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기">
+            <img src="book_cover_mcp.png" alt="따라하며 쉽게 익히는 MCP 파이썬과 FastMCP로 직접 구축하기 표지" loading="lazy">
+          </a>
+          <div>
+            <div class="num">03</div>
+            <h3>따라하며 쉽게 익히는 MCP<br>파이썬과 FastMCP로 직접 구축하기</h3>
+            <p>MCP를 실습 중심으로 익히는 책. FastMCP로 서버를 반복 구축하고, Claude Desktop, Cursor, 파이썬 등 다양한 클라이언트로 검증하며, Anthropic, OpenAI, Gemini 등 상용 API와 연동하는 방법을 배웁니다.</p>
+            <div class="stores">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer">교보문고 <span class="arw">↗</span></a>
+              <a class="store" href="https://www.yes24.com/product/goods/155061618" target="_blank" rel="noopener noreferrer">YES24 <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="book rv">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer" aria-label="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱">
+            <img src="book_cover_ai_kakao.png" alt="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱 표지" loading="lazy">
+          </a>
+          <div>
+            <div class="num">04</div>
+            <h3>생성형 AI와 카카오톡으로 만드는<br>실전 TODO 앱</h3>
+            <p>생성형 AI 서비스를 처음부터 끝까지 구현하는 실전 가이드. 클라우드 서버 구축, OpenAI API 연동, 파이썬 FastAPI 웹 서비스 개발, 카카오 채널 연동까지 AI 서비스의 전 과정을 경험합니다.</p>
+            <div class="stores">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer">교보문고 <span class="arw">↗</span></a>
+              <a class="store" href="https://www.yes24.com/product/goods/155061617" target="_blank" rel="noopener noreferrer">YES24 <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="c">© <span id="y"></span> 다시개발</div>
+    <a class="up" href="#top">맨 위로 ↑</a>
   </div>
+</footer>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+<div id="toast" role="status" aria-live="polite">복사되었습니다</div>
+
+<script>
+(function(){
+  "use strict";
+
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  /* ---- toast ---- */
+  var toast = document.getElementById("toast"), toastTimer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 1800);
+  }
+
+  /* ---- copy ---- */
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:-9999px;opacity:0;";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function markCopied(btn){
+    btn.classList.add("copied");
+    var label = btn.querySelector(".label");
+    var prev = label ? label.textContent : null;
+    if (label) label.textContent = "복사되었습니다!";
+    setTimeout(function(){
+      btn.classList.remove("copied");
+      if (label && prev !== null) label.textContent = prev;
+    }, 1800);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".js-copy"), function(btn){
+    btn.addEventListener("click", function(){
+      var text = btn.getAttribute("data-copy") || "";
+      var done = function(){ markCopied(btn); showToast("이메일 주소를 복사했습니다"); };
+      if (navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(text).then(done)["catch"](function(){
+          if (fallbackCopy(text)) done(); else showToast(text);
+        });
+      } else {
+        if (fallbackCopy(text)) done(); else showToast(text);
+      }
+    });
+  });
+
+  /* ---- scroll reveal ---- */
+  var items = document.querySelectorAll(".rv");
+  if (!("IntersectionObserver" in window)){
+    Array.prototype.forEach.call(items, function(el){ el.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var delay = parseInt(el.getAttribute("data-d") || "0", 10);
+      setTimeout(function(){ el.classList.add("in"); }, delay);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  Array.prototype.forEach.call(items, function(el, i){
+    el.setAttribute("data-d", String(Math.min(i, 6) * 70));
+    io.observe(el);
+  });
+})();
+</script>
+
 </body>
 </html>
