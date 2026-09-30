@@ -158,7 +158,14 @@ h1.headline .thin{
 .section{ padding-block:clamp(22px,3vw,34px) clamp(48px,7vw,84px); }
 .sec-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:26px; }
 .sec-head h2{ margin:6px 0 0; font-size:clamp(26px,4vw,40px); font-weight:900; letter-spacing:-.04em; line-height:1.15; }
-.sec-head .count{ font-size:13px; color:var(--muted); font-weight:700; letter-spacing:-.01em; }
+.sec-head .count{ font-size:13px; color:var(--muted); font-weight:700; letter-spacing:-.01em; text-align:right; }
+.sec-head .sam{ display:flex; align-items:center; justify-content:flex-end; gap:7px; margin-top:6px; color:var(--ink-2); }
+.sec-head .sam b{
+  font-size:11px; font-weight:900; letter-spacing:.02em;
+  padding:2px 8px; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent);
+}
+@media (max-width:640px){ .sec-head .count{ text-align:left; } .sec-head .sam{ justify-content:flex-start; } }
 
 /* ============ books ============ */
 .books{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
@@ -286,7 +293,10 @@ footer .up:hover{ color:var(--accent); }
           <div class="eyebrow">Publications</div>
           <h2>책 소개 <span class="serif" style="font-style:italic;">(전자책)</span></h2>
         </div>
-        <div class="count">교보문고 · YES24에서 만나보실 수 있습니다 — 총 5권</div>
+        <div class="count">
+          교보문고 · YES24에서 만나보실 수 있습니다 — 총 5권
+          <span class="sam"><b>sam</b> 교보문고 sam 구독으로도 읽을 수 있습니다</span>
+        </div>
       </div>
 
       <div class="books">
