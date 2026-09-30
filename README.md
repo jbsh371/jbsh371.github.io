@@ -33,19 +33,23 @@ AI를 공부하며 책을 씁니다.
 
 교보문고 · YES24에서 만나보실 수 있습니다.
 
-### 01. LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제
+### 01. 다중 사용자 원격 MCP 서버 만들기 — OAuth로 Claude와 연동하는 5단계
+claude.ai에서 여러분의 서비스를 쓰게 만드는 책. 로컬 stdio 서버에서 출발해 사용자 구분, 토큰 인증, 원격 HTTPS 배포, OAuth 로그인까지 5단계로 쌓아 올리며, 사용자마다 자기 데이터만 보는 다중 사용자 MCP 서버를 FastMCP로 완성합니다.
+[교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013636679) · [YES24](https://www.yes24.com/product/goods/197087831)
+
+### 02. LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제
 AI Agent를 처음 이해하기 위한 책. LangGraph를 통해 Agent의 실행 과정을 흐름으로 바라보고, State를 기준으로 동작을 이해하며, LLM과 도구를 구성 요소로 나누어 생각하는 방식을 배웁니다.
 [교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835) · [YES24](https://www.yes24.com/product/goods/173925712)
 
-### 02. 나만의 Agent 만들기 — OpenAI(GPT-5) 편
+### 03. 나만의 Agent 만들기 — OpenAI(GPT-5) 편
 OpenAI API로 원리를 이해하고 SDK로 시스템을 완성하는 흐름을 경험하는 입문서. 사용자 요청 이해, 외부 도구 호출, 대화이력 관리, 웹 검색, 문서 기반 질의응답 등을 직접 구현하며 배웁니다.
 [교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137) · [YES24](https://www.yes24.com/product/goods/159581129)
 
-### 03. 따라하며 쉽게 익히는 MCP — 파이썬과 FastMCP로 직접 구축하기
+### 04. 따라하며 쉽게 익히는 MCP — 파이썬과 FastMCP로 직접 구축하기
 MCP를 실습 중심으로 익히는 책. FastMCP로 서버를 반복 구축하고, Claude Desktop, Cursor, 파이썬 등 다양한 클라이언트로 검증하며, Anthropic, OpenAI, Gemini 등 상용 API와 연동하는 방법을 배웁니다.
 [교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862) · [YES24](https://www.yes24.com/product/goods/155061618)
 
-### 04. 생성형 AI와 카카오톡으로 만드는 실전 TODO 앱
+### 05. 생성형 AI와 카카오톡으로 만드는 실전 TODO 앱
 생성형 AI 서비스를 처음부터 끝까지 구현하는 실전 가이드. 클라우드 서버 구축, OpenAI API 연동, 파이썬 FastAPI 웹 서비스 개발, 카카오 채널 연동까지 AI 서비스의 전 과정을 경험합니다.
 [교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843) · [YES24](https://www.yes24.com/product/goods/155061617)
 
