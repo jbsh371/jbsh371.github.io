@@ -13,7 +13,8 @@
 AI를 공부하며 책을 씁니다.
 
 - GitHub: <https://github.com/jbsh371>
-- 블로그: <https://recording-it.tistory.com/>
+- 블로그: <https://wikidocs.net/blog/@jbsh/>
+- 이전 블로그(티스토리): <https://recording-it.tistory.com/>
 - 이메일: jbsh371@gmail.com
 
 ---
