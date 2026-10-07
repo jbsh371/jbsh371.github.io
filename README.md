@@ -30,13 +30,13 @@ AI를 공부하며 책을 씁니다.
 
 ---
 
-## 출간한 전자책
+## 출간한 책
 
-교보문고 · YES24에서 만나보실 수 있습니다.
+교보문고 · YES24에서 만나보실 수 있습니다. 종이책(POD)은 교보문고에서 주문 제작됩니다.
 
 ### 01. 다중 사용자 원격 MCP 서버 만들기 — OAuth로 Claude와 연동하는 5단계
 claude.ai에서 여러분의 서비스를 쓰게 만드는 책. 로컬 stdio 서버에서 출발해 사용자 구분, 토큰 인증, 원격 HTTPS 배포, OAuth 로그인까지 5단계로 쌓아 올리며, 사용자마다 자기 데이터만 보는 다중 사용자 MCP 서버를 FastMCP로 완성합니다.
-[교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013636679) · [YES24](https://www.yes24.com/product/goods/197087831)
+[교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013636679) · [YES24](https://www.yes24.com/product/goods/197087831) · [종이책(POD)](https://product.kyobobook.co.kr/detail/S000221567577)
 
 ### 02. LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제
 AI Agent를 처음 이해하기 위한 책. LangGraph를 통해 Agent의 실행 과정을 흐름으로 바라보고, State를 기준으로 동작을 이해하며, LLM과 도구를 구성 요소로 나누어 생각하는 방식을 배웁니다.
