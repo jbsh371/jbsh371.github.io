@@ -171,8 +171,8 @@ h1.headline .thin{
 @media (max-width:640px){ .sec-head .count{ text-align:left; } .sec-head .sam{ justify-content:flex-start; } }
 
 /* ============ books ============ */
-.books{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
-@media (max-width:900px){ .books{ grid-template-columns:repeat(3,1fr); } }
+.books{ display:grid; grid-template-columns:repeat(6,1fr); gap:18px; }
+@media (max-width:1000px){ .books{ grid-template-columns:repeat(3,1fr); } }
 @media (max-width:560px){ .books{ grid-template-columns:repeat(2,1fr); gap:14px; } }
 
 .book{
@@ -312,11 +312,27 @@ footer .up:hover{ color:var(--accent); }
 
         <!-- 01 -->
         <article class="book">
+          <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013711823" target="_blank" rel="noopener noreferrer" aria-label="ChatGPT dots, 어디까지 맡겨도 될까? - 워크숍 준비를 맡긴 나흘">
+            <img src="book_cover_dots.png" alt="ChatGPT dots, 어디까지 맡겨도 될까? 워크숍 준비를 맡긴 나흘 표지" loading="lazy">
+          </a>
+          <div class="info">
+            <div class="num">01</div>
+            <h3>ChatGPT dots, 어디까지 맡겨도 될까? — 워크숍 준비를 맡긴 나흘</h3>
+            <p>AI 에이전트에게 일을 어디까지 맡길 수 있는지 살펴보는 책. 가상의 사내 워크숍 준비를 나흘 동안 ChatGPT dot 하나에 맡기며, 메일·일정·통화·Slack까지 dot이 어디까지 스스로 판단하고 언제 사용자에게 묻는지를 기록합니다. 코드 없이, ChatGPT를 써 본 독자를 위해 썼습니다.</p>
+            <div class="stores">
+              <a class="store" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013711823" target="_blank" rel="noopener noreferrer">교보문고 <span class="arw">↗</span></a>
+              <a class="store" href="https://www.yes24.com/product/goods/198407907" target="_blank" rel="noopener noreferrer">YES24 <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="book">
           <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013636679" target="_blank" rel="noopener noreferrer" aria-label="다중 사용자 원격 MCP 서버 만들기 - OAuth로 Claude와 연동하는 5단계">
             <img src="book_cover_mcp_oauth.png" alt="다중 사용자 원격 MCP 서버 만들기 OAuth로 Claude와 연동하는 5단계 표지" loading="lazy">
           </a>
           <div class="info">
-            <div class="num">01</div>
+            <div class="num">02</div>
             <h3>다중 사용자 원격 MCP 서버 만들기 — OAuth로 Claude와 연동하는 5단계</h3>
             <p>claude.ai에서 여러분의 서비스를 쓰게 만드는 책. 로컬 stdio 서버에서 출발해 사용자 구분, 토큰 인증, 원격 HTTPS 배포, OAuth 로그인까지 5단계로 쌓아 올리며, 사용자마다 자기 데이터만 보는 다중 사용자 MCP 서버를 FastMCP로 완성합니다.</p>
             <div class="stores">
@@ -327,13 +343,13 @@ footer .up:hover{ color:var(--accent); }
           </div>
         </article>
 
-        <!-- 02 -->
+        <!-- 03 -->
         <article class="book">
           <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012440835" target="_blank" rel="noopener noreferrer" aria-label="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제">
             <img src="book_cover_langgraph.png" alt="LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제 표지" loading="lazy">
           </a>
           <div class="info">
-            <div class="num">02</div>
+            <div class="num">03</div>
             <h3>LangGraph v1.x로 이해하는 LLM Agent의 흐름과 통제</h3>
             <p>AI Agent를 처음 이해하기 위한 책. LangGraph를 통해 Agent의 실행 과정을 흐름으로 바라보고, State를 기준으로 동작을 이해하며, LLM과 도구를 구성 요소로 나누어 생각하는 방식을 배웁니다.</p>
             <div class="stores">
@@ -343,13 +359,13 @@ footer .up:hover{ color:var(--accent); }
           </div>
         </article>
 
-        <!-- 03 -->
+        <!-- 04 -->
         <article class="book">
           <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012082137" target="_blank" rel="noopener noreferrer" aria-label="나만의 Agent 만들기 - OpenAI(GPT-5) 편">
             <img src="book_cover_agent_openai.png" alt="나만의 Agent 만들기 OpenAI GPT-5 편 표지" loading="lazy">
           </a>
           <div class="info">
-            <div class="num">03</div>
+            <div class="num">04</div>
             <h3>나만의 Agent 만들기 — OpenAI(GPT-5) 편</h3>
             <p>OpenAI API로 원리를 이해하고 SDK로 시스템을 완성하는 흐름을 경험하는 입문서. 사용자 요청 이해, 외부 도구 호출, 대화이력 관리, 웹 검색, 문서 기반 질의응답 등을 직접 구현하며 배웁니다.</p>
             <div class="stores">
@@ -359,13 +375,13 @@ footer .up:hover{ color:var(--accent); }
           </div>
         </article>
 
-        <!-- 04 -->
+        <!-- 05 -->
         <article class="book">
           <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019862" target="_blank" rel="noopener noreferrer" aria-label="따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기">
             <img src="book_cover_mcp.png" alt="따라하며 쉽게 익히는 MCP 파이썬과 FastMCP로 직접 구축하기 표지" loading="lazy">
           </a>
           <div class="info">
-            <div class="num">04</div>
+            <div class="num">05</div>
             <h3>따라하며 쉽게 익히는 MCP: 파이썬과 FastMCP로 직접 구축하기</h3>
             <p>MCP를 실습 중심으로 익히는 책. FastMCP로 서버를 반복 구축하고, Claude Desktop, Cursor, 파이썬 등 다양한 클라이언트로 검증하며, Anthropic, OpenAI, Gemini 등 상용 API와 연동하는 방법을 배웁니다.</p>
             <div class="stores">
@@ -375,13 +391,13 @@ footer .up:hover{ color:var(--accent); }
           </div>
         </article>
 
-        <!-- 05 -->
+        <!-- 06 -->
         <article class="book">
           <a class="cover" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012019843" target="_blank" rel="noopener noreferrer" aria-label="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱">
             <img src="book_cover_ai_kakao.png" alt="생성형 AI와 카카오톡으로 만드는 실전 TODO 앱 표지" loading="lazy">
           </a>
           <div class="info">
-            <div class="num">05</div>
+            <div class="num">06</div>
             <h3>생성형 AI와 카카오톡으로 만드는 실전 TODO 앱</h3>
             <p>생성형 AI 서비스를 처음부터 끝까지 구현하는 실전 가이드. 클라우드 서버 구축, OpenAI API 연동, 파이썬 FastAPI 웹 서비스 개발, 카카오 채널 연동까지 AI 서비스의 전 과정을 경험합니다.</p>
             <div class="stores">
