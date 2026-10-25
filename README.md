@@ -36,7 +36,7 @@ AI를 공부하며 책을 씁니다.
 
 ### 01. ChatGPT dots, 어디까지 맡겨도 될까? — 워크숍 준비를 맡긴 나흘
 AI 에이전트에게 일을 어디까지 맡길 수 있는지 살펴보는 책. 가상의 사내 워크숍 준비를 나흘 동안 ChatGPT dot 하나에 맡기며, 메일·일정·통화·Slack까지 dot이 어디까지 스스로 판단하고 언제 사용자에게 묻는지를 기록합니다. 코드 없이, ChatGPT를 써 본 독자를 위해 썼습니다.
-[교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013711823) · [YES24](https://www.yes24.com/product/goods/198407907)
+[교보문고](https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013711823) · [YES24](https://www.yes24.com/product/goods/198407907) · [종이책(POD)](https://product.kyobobook.co.kr/detail/S000221760641)
 
 ### 02. 다중 사용자 원격 MCP 서버 만들기 — OAuth로 Claude와 연동하는 5단계
 claude.ai에서 여러분의 서비스를 쓰게 만드는 책. 로컬 stdio 서버에서 출발해 사용자 구분, 토큰 인증, 원격 HTTPS 배포, OAuth 로그인까지 5단계로 쌓아 올리며, 사용자마다 자기 데이터만 보는 다중 사용자 MCP 서버를 FastMCP로 완성합니다.
